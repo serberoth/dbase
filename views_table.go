@@ -72,14 +72,14 @@ func HandleTableView(tableName string, writer http.ResponseWriter, request *http
 		} else {
 			table.Name = tableName
 			Tables[tableName] = table
-			// PersistTables()
+			PersistTables()
 			http.Redirect(writer, request, "/tables/"+tableName, http.StatusFound)
 		}
 	} else if "DELETE" == request.Method {
 		// Handle DELETE reques by removing the table entry from
 		// the global table map.
 		delete(Tables, tableName)
-		// PersistTables()
+		PersistTables()
 		http.Redirect(writer, request, "/tables", http.StatusFound)
 	} else {
 		// Display an invalid request message
@@ -106,7 +106,7 @@ func HandleTableEntry(tableName string, entryName string, writer http.ResponseWr
 			http.Error(writer, "Server error", http.StatusInternalServerError)
 		} else {
 			Tables[tableName].Data[entryName] = v
-			// PersistTables()
+			PersistTables()
 			http.Redirect(writer, request, "/tables/"+tableName+"/"+entryName, http.StatusFound)
 		}
 	} else if "DELETE" == request.Method {
@@ -114,7 +114,7 @@ func HandleTableEntry(tableName string, entryName string, writer http.ResponseWr
 		// if the table does not exist.
 		if table, exists := Tables[tableName]; exists {
 			delete(table.Data, entryName)
-			// PersistTables()
+			PersistTables()
 			http.Redirect(writer, request, "/tables/"+tableName, http.StatusFound)
 		} else {
 			http.Error(writer, "Invalid request", http.StatusBadRequest)

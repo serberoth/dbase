@@ -16,7 +16,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// defer PersistTables()
+	defer PersistTables()
 
 	// Initialize the routes
 	http.HandleFunc("/tables", HandleTables)

@@ -17,7 +17,7 @@ func HandleTables(writer http.ResponseWriter, request *http.Request) {
 		RenderTemplate(writer, "tables_view.html", keys)
 	} else if "DELETE" == request.Method {
 		Tables = make(map[string]Table)
-		// PersistTables()
+		PersistTables()
 		http.Redirect(writer, request, "/tables", http.StatusFound)
 	} else {
 		http.Error(writer, "Invalid request", http.StatusBadRequest)

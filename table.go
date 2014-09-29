@@ -8,7 +8,8 @@ import (
 )
 
 // The name of the persistent database file
-const FILENAME = ".data.base.json"
+const LOAD_FILENAME = ".data.base.json"
+const SAVE_FILENAME = ".data.base.out.json"
 
 // A simple table structure containing the
 // table name and a map data structure
@@ -69,9 +70,9 @@ func DecodeTable(reader io.Reader) (Table, error) {
 // the persistant database file storage.
 func InitializeTables() error {
 	// Check if the file exists, if not create it with an empty JSON object
-	if _, err := os.Stat(FILENAME); err != nil {
+	if _, err := os.Stat(LOAD_FILENAME); err != nil {
 		log.Println("Database persistance file does not exist")
-		file, err := os.Create(FILENAME)
+		file, err := os.Create(LOAD_FILENAME)
 
 		if err != nil {
 			return err
@@ -81,7 +82,7 @@ func InitializeTables() error {
 	}
 
 	// Open the file for reading
-	file, err := os.Open(FILENAME)
+	file, err := os.Open(LOAD_FILENAME)
 	if err != nil {
 		return err
 	}
@@ -102,7 +103,7 @@ func InitializeTables() error {
 // that will be read on application load.
 func PersistTables() error {
 	// Create the file, truncating any existing content
-	writer, err := os.Create(FILENAME)
+	writer, err := os.Create(SAVE_FILENAME)
 	if err != nil {
 		return err
 	}
