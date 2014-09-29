@@ -22,6 +22,7 @@ func RenderTemplate(writer http.ResponseWriter, templateName string, data interf
 	}
 }
 
+// HandleStyles handles the styles route rendering CSS styles for the application
 func HandleStyles(writer http.ResponseWriter, request *http.Request) {
 	writer.Header().Set("Content-Type", "text/css")
 	tmpl, err := text.ParseFiles("styles.css")

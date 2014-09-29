@@ -1,0 +1,37 @@
+DBase
+Written By: Serberoth
+------------------------------------------------------------
+DBase is a toy RESTful service database/table like web based
+application.  The application handles the following routes:
+
+/tables		-- Display all available tables
+/tables/:table	-- Display the data for :table
+/tables/:table/:key -- Display the data for the entry :key in table :table
+/search?q=<regex> -- Search all tables for matching keys
+
+The application handles HTTP GET for the above routes as well
+as POST for the search route.
+
+In addition to the above the application also handles POST
+for /tables/:table where the expected post body content is
+a JSON object. This will created or overwrite the specified
+table with the provided content.
+The /tables/:table/:key route handles PUT, again expecting
+JSON body content.  This will create or update the :key in
+the specified :table.
+All of the /tables routes handle the DELETE method deleting
+their respective content.
+
+Running the application:
+
+go run *.go
+
+Miscellaneous Notes:
+
+The tables are implemented using the Go out of the box
+map which should be replaced by a keyed b-tree for more
+efficient handling of larger data sets.  Additionally
+the application is non-transactional, changes to the
+data are made on a first-come first-served basis and
+race conditions may exist.
+
