@@ -41,6 +41,10 @@ tbody tr:nth-child(even) {
   background: none;
 }
 
+tbody tr:hover {
+  background: #cce;
+}
+
 td {
   vertical-align: middle;
   padding: 4px 6px 4px 6px;
@@ -52,10 +56,10 @@ div.header {
   background: #038;
 }
 
-div span {
+div.header span {
   padding: 0 10px 0 6px;
   line-height: 32px;
-  font-size: 1.2em;
+  font-size: 0.7em;
   float: left;
 }
 
@@ -67,15 +71,16 @@ div.banner {
 
 input[type="text"] {
   vertical-align: 40%;
-  background: no-repeat left #aaa;
+  background: no-repeat left #038;
   border: none;
   border-radius: 20px;
   box-shadow: 0 1px 0 #fff, 0 3px 3px #000 inset;
-  /* transition: all 0.7s ease 0s; */
+  transition: all 0.7s ease 0s;
   width: 40em;
 }
 input[type="text"]:focus {
   outline: none;
+  background-color: #aaa;
 }
 
 div.button {

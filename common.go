@@ -3,6 +3,7 @@ package main
 import (
 	"html/template"
 	"net/http"
+        text "text/template"
 )
 
 // RenderTemplate is responsible for rendering the requested HTML template using the
@@ -17,6 +18,19 @@ func RenderTemplate(writer http.ResponseWriter, templateName string, data interf
 
 	// Execute the template and return an error status with the render fails
 	if err = tmpl.Execute(writer, data); err != nil {
+		http.Error(writer, err.Error(), http.StatusInternalServerError)
+	}
+}
+
+func HandleStyles(writer http.ResponseWriter, request *http.Request) {
+	writer.Header().Set("Content-Type", "text/css")
+	tmpl, err := text.ParseFiles("styles.css")
+	if err != nil {
+		http.Error(writer, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	if err = tmpl.Execute(writer, nil); err != nil {
 		http.Error(writer, err.Error(), http.StatusInternalServerError)
 	}
 }

@@ -5,7 +5,6 @@ import (
 	// "fmt"
 	"log"
 	"net/http"
-	"text/template"
 )
 
 // The entry point for the application.  This method initialized the tables
@@ -25,13 +24,7 @@ func main() {
 	http.HandleFunc("/search", HandleSearch)
 	http.HandleFunc("/search/", HandleSearch)
 
-	http.HandleFunc("/styles.css", func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Content-Type", "text/css")
-		tmpl, err := template.ParseFiles("styles.css")
-		if err == nil {
-			tmpl.Execute(w, nil)
-		}
-	})
+	http.HandleFunc("/styles.css", HandleStyles);
 
 	// Initialize the root to redirect to the tables service
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
