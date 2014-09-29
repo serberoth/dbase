@@ -3,7 +3,7 @@ package main
 import (
 	"html/template"
 	"net/http"
-        text "text/template"
+	text "text/template"
 )
 
 // RenderTemplate is responsible for rendering the requested HTML template using the

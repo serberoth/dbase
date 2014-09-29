@@ -24,7 +24,7 @@ func main() {
 	http.HandleFunc("/search", HandleSearch)
 	http.HandleFunc("/search/", HandleSearch)
 
-	http.HandleFunc("/styles.css", HandleStyles);
+	http.HandleFunc("/styles.css", HandleStyles)
 
 	// Initialize the root to redirect to the tables service
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
