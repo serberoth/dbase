@@ -26,6 +26,12 @@ Running the application:
 
 go run *.go
 
+then visit:
+
+http://localhost:8888/
+
+in your browser (tested with Chrome 37)
+
 Miscellaneous Notes:
 
 The tables are implemented using the Go out of the box
