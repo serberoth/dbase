@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DBase - All Tables</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css" />
+  </head>
+  <body>
+    <div class="banner">All Tables</div>
+    <div class="header">
+      <span style="font-size: small;" >Search:</span>
+      <form action="/search" method="POST" >
+        <input type="text" name="q" />
+        <!-- input type="submit" value="Search" / -->
+      </form>
+    </div>
+    {{if .}}
+      <table>
+        <thead>
+          <tr><th>Table Name</th></tr>
+        </thead>
+        <tbody>
+          {{range .}}
+            <tr><td><a href="/tables/{{.}}" >{{.}}</a></td></tr>
+          {{end}}
+        </tbody>
+      </table>
+    {{else}}
+      <div>No content is stored</div>
+    {{end}}
+  </body>
+</html>
+

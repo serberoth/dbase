@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DBase - Search Results - {{.Query}}</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css" />
+  </head>
+  <body>
+    <div class="banner">Search: {{.Query}}</div>
+    {{if .Results}}
+      <table>
+        <thead>
+          <tr><th>Table Name</th><th>Entry Name</th><th>Value</th>
+        </thead>
+        <tbody>
+          {{range .Results}}
+            <tr>
+              <td><a href="/tables/{{.TableName}}" >{{.TableName}}</a></td>
+              <td><a href="/tables/{{.TableName}}/{{.EntryName}}" >{{.EntryName}}</a></td>
+              <td>{{.Value}}</td>
+            </tr>
+          {{end}}
+        </tbody>
+      </table>
+    {{else}}
+      <div class="invalid" >Your search for '<b>{{.Query}}</b>' returned no results</div>
+    {{end}}
+    <div class="button" >
+      <a href="/tables" >Back to tables</a>
+    </div>
+  </body>
+</html>
+

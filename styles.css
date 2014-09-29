@@ -1,0 +1,103 @@
+
+body, div, span, p, a,  table, tbody, tr, th, td {
+  font-family: "Arial", "Helvetica", sans-serif;
+}
+
+body {
+  font-family: "Arial", "Helvetica", sans-serif;
+  font-size: 1.5em;
+  background-color: #aaa;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+a:active {
+  color: black;
+}
+a:hover {
+  color: black;
+}
+a:visited {
+  color: black;
+}
+
+table {
+  padding: 20px 2px 20px 2px;
+  width: 100%;
+}
+
+thead tr:first-child {
+  background: #038;
+  color: white;
+}
+
+tbody tr:nth-child(odd) {
+  background: #ccc;
+}
+
+tbody tr:nth-child(even) {
+  background: none;
+}
+
+td {
+  vertical-align: middle;
+  padding: 4px 6px 4px 6px;
+}
+
+div.header {
+  line-height: 32px;
+  color: white;
+  background: #038;
+}
+
+div span {
+  padding: 0 10px 0 6px;
+  line-height: 32px;
+  font-size: 1.2em;
+  float: left;
+}
+
+div.banner {
+  color: white;
+  background: #038;
+  padding: 10px 8px 20px 8px;
+}
+
+input[type="text"] {
+  vertical-align: 40%;
+  background: no-repeat left #aaa;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 1px 0 #fff, 0 3px 3px #000 inset;
+  /* transition: all 0.7s ease 0s; */
+  width: 40em;
+}
+input[type="text"]:focus {
+  outline: none;
+}
+
+div.button {
+  color: white;
+  background: no-repeat left #038;
+  border-radius: 40px;
+  box-shadow: 0 -1px 0 #fff, 0 -3px -3px #000 outset;
+  padding: 6px 20px 6px 20px;
+  width: 10em;
+  text-align: center;
+}
+div.button:hover {
+  box-shadow: 0 1px 0 #fff, 0 3px 3px #000 inset;
+}
+div.button a {
+  color: white;
+}
+
+div.invalid {
+  font-size: larger;
+  width: 100%;
+  text-align: center;
+  padding: 20px 6px 40px 6px;
+}
+

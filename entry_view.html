@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DBase - Table {{.TableName}} Entry {{.EntryName}}</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css" />
+  </head>
+  <body>
+    <div class="banner">Table: {{.TableName}}</div>
+    {{if .Value}}
+      <table>
+        <thead>
+          <tr><th>{{.EntryName}}</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>{{.Value}}</td></tr>
+        </tbody>
+      </table>
+    {{else}}
+      <div class="invalid" >Table <b>{{.TableName}}</b> does not contain an entry for key <b>{{.EntryName}}</b></div>
+    {{end}}
+    <div class="button" >
+      <a href="/tables/{{.TableName}}" >Back to {{.TableName}}</a>
+    </div>
+  </body>
+</html>
+
